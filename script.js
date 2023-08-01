@@ -12,12 +12,12 @@ function getComputerChoice() {
 
 function promptUser() {
     let playerSelection = prompt('Rock, paper, or scissors?');
-    //make playerSelection case insensitive
-    playerSelection = playerSelection.toLowerCase();
     
     //check if user entered appropriate value, if not re-prompt
     let continueLoop = true;
     while(continueLoop) {
+        //make playerSelection case insensitive
+        playerSelection = playerSelection.toLowerCase();
         if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
             continueLoop = false;
             return playerSelection;
