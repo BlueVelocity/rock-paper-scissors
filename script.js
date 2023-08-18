@@ -1,3 +1,6 @@
+let pageAudio = document.getElementById('pageAudio');
+pageAudio.volume = 0.1;
+
 let buttons = document.querySelectorAll("button");
 
 buttons.forEach( (button) => {button.addEventListener('click', ( () => runGame(button.getAttribute('name'))))})
