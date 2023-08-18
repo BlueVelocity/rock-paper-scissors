@@ -21,3 +21,24 @@ div {
 .input {
     background-color: lightgreen;
 }
+
+.game-tiles {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+}
+
+.game-tiles div {
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-tiles div span {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 26px;
+    margin: 0 0 20px 0;
+}
