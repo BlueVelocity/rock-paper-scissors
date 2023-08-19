@@ -9,7 +9,7 @@
 <body>
     <h1><u>Fire, Nature, Water</u></h1>
     <span>Play the hit classic rock, paper, scissors against the future bane of humanity!</span>
-    <span>Who knew grinding OSRS was just training on AI's turf?</span>
+    <span id="taunt">Wouldn't grinding OSRS be better left to AI?</span>
     <span>Select a rune to begin!</span>
     <div class="game">
         <div id="computer-output-div" class="computer-output">
@@ -37,16 +37,17 @@
     <div class="scores">
         <div>
             <span>Computer Score: </span>
-            <span></span>
+            <span id="computer-score">0</span>
         </div>
         <div>
             <span>Player Score: </span>
-            <span>Pick a rune!</span>
+            <span id="player-score">0</span>
         </div>
     </div>
 
     <audio id="pageAudio" src="./audio/Scape_Original.ogg" type="audio/ogg" autoplay loop></audio>
-    <audio id="playerSelection" src="./sound/attack.ogg" type="audio/ogg"></audio>
+    <audio id="playerHit" src="./sound/attack.ogg" type="audio/ogg"></audio>
+    <audio id="playerMiss" src="./sound/miss.ogg" type="audio/ogg"></audio>
     <audio id="playerWin" src="./sound/victory.ogg" type="audio/ogg"></audio>
     <audio id="playerLose" src="./sound/death.ogg" type="audio/ogg"></audio>
     

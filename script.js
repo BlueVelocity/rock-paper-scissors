@@ -8,6 +8,13 @@ buttons.forEach( (button) => {button.addEventListener('click', ( () => runGame(b
 let computerOutputDiv = document.getElementById("computer-output-div");
 let playerInputDiv = document.getElementById("input-div");
 
+let computerScoreCounter = document.getElementById("computer-score");
+let playerScoreCounter = document.getElementById("player-score");
+
+//counter of wins for player
+let playerScore= 0;
+//counter of wins for computer
+let computerScore = 0;
 
 //randomly generate computer answer, return answer
 function getComputerChoice() {
@@ -21,11 +28,6 @@ function getComputerChoice() {
     }
 }
 
-//counter of wins for player
-let playerScore= 0;
-//counter of wins for computer
-let computerScore = 0;
-
 //function to run the game
 function runGame(playerSelection) {
 
@@ -38,10 +40,12 @@ function runGame(playerSelection) {
             console.log(`Computer selected ${computerSelection}. You win this round!`)
             changeIndicatorBackground('playerWin');
             playerScore++
+            playerScoreCounter.textContent = `${playerScore}`;
         } else if (winner === 'c'){
             console.log(`Computer selected ${computerSelection}. You lose this round...`);
             changeIndicatorBackground('computerWin');
             computerScore++
+            computerScoreCounter.textContent = `${computerScore}`;
         } 
     }
 
@@ -109,6 +113,8 @@ function setIndicatorDivColors(playerColor, computerColor) {
 }
 
 function resetGame() {
+    playerScoreCounter.textContent = '0';
+    computerScoreCounter.textContent = '0';
     playerScore = 0;
     computerScore = 0;
     console.log('game reset');
