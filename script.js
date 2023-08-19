@@ -11,6 +11,8 @@ let playerInputDiv = document.getElementById("input-div");
 let computerScoreCounter = document.getElementById("computer-score");
 let playerScoreCounter = document.getElementById("player-score");
 
+let computerOutputFigure = document.getElementById('computer-output-figure')
+
 //counter of wins for player
 let playerScore= 0;
 //counter of wins for computer
@@ -20,10 +22,13 @@ let computerScore = 0;
 function getComputerChoice() {
     let x = Math.random()
     if (x < 0.333) {
+        computerOutputFigure.setAttribute('src', './photo/fire_rune.png');
         return 'rock';
     } else if (x < 0.666) {
+        computerOutputFigure.setAttribute('src', './photo/water_rune.png')
         return 'paper';
     } else if (0.666 < x) {
+        computerOutputFigure.setAttribute('src', './photo/nature_rune.png')
         return 'scissors';
     }
 }
