@@ -7,20 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-tiles">
-        <div >
-            <span>Computer</span>
-            <img src="./photo/computer.png" width="200" height="60">
+    <div class="game">
+        <div class="computer-output">
+            <img id="computer-output" src="./photo/unknown.png" width="100" height="100">
         </div>
-        <div>
-            <span>Player</span>
-            <img src="./photo/player.png" width="100" height="200">
+        <div class="player-tiles">
+            <div >
+                <span>Computer</span>
+                <img src="./photo/computer.png" width="200" height="60">
+            </div>
+            <div>
+                <span>Player</span>
+                <img src="./photo/player.png" width="100" height="200">
+            </div>
+        </div>
+        <div class="input">
+            <img class="input-button" name="rock" src="./photo/fire_rune.png" width="100px" height="100px"><br />
+            <img class="input-button" name="paper" src="./photo/nature_rune.png" width="100px" height="100px"><br />
+            <img class="input-button" name="scissors" src="./photo/water_rune.png" width="100px" height="100px"><br />
         </div>
     </div>
-    <div class="input">
-        <button id="button-rock" name="rock">Rock</button>
-        <button id="button-paper" name="paper">Paper</button>
-        <button id="button-scissors" name="scissors">Scissors</button>
+    <div class="scores">
+        <div>
+            <span>Computer Score: </span>
+        </div>
+        <div>
+            <span>Player Score: </span>
+        </div>
     </div>
     <audio id="pageAudio" autoplay loop>
         <source  src="./audio/Scape_Original.ogg" type="audio/ogg">

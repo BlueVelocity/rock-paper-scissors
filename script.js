@@ -1,7 +1,8 @@
 let pageAudio = document.getElementById('pageAudio');
 pageAudio.volume = 0.1;
 
-let buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll(".input-button");
+//getElementsByClassName("input-button");
 
 buttons.forEach( (button) => {button.addEventListener('click', ( () => runGame(button.getAttribute('name'))))})
 
