@@ -2,9 +2,12 @@ let pageAudio = document.getElementById('pageAudio');
 pageAudio.volume = 0.1;
 
 let buttons = document.querySelectorAll(".input-button");
-//getElementsByClassName("input-button");
 
 buttons.forEach( (button) => {button.addEventListener('click', ( () => runGame(button.getAttribute('name'))))})
+
+let computerOutputDiv = document.getElementById("computer-output-div");
+let playerInputDiv = document.getElementById("input-div");
+
 
 //randomly generate computer answer, return answer
 function getComputerChoice() {
@@ -33,9 +36,11 @@ function runGame(playerSelection) {
     function announcer(winner) {
         if (winner  === 'p') {
             console.log(`Computer selected ${computerSelection}. You win this round!`)
+            changeIndicatorBackground('playerWin');
             playerScore++
         } else if (winner === 'c'){
             console.log(`Computer selected ${computerSelection}. You lose this round...`);
+            changeIndicatorBackground('computerWin');
             computerScore++
         } 
     }
@@ -44,6 +49,7 @@ function runGame(playerSelection) {
     //logic for game win or lose
     if (computerSelection === playerSelection) {
         console.log('It\'s a tie!');
+        changeIndicatorBackground('tie');
     } else if (computerSelection === 'rock') {
         if (playerSelection === 'paper') {
             announcer('p');
@@ -73,10 +79,33 @@ function runGame(playerSelection) {
 function winOrLose() {
     if (playerScore > computerScore) {
         console.log(`You win! You: ${playerScore}, Computer: ${computerScore}`);
+        changeIndicatorBackground('playerVictory');
     } else {
         console.log(`You Lost... Computer: ${computerScore}, You: ${playerScore}`);
+        changeIndicatorBackground('computerVictory');
     } 
     resetGame();
+}
+
+function changeIndicatorBackground(winner) {
+    if (winner === 'playerWin') {
+        setIndicatorDivColors('lightgreen', 'pink')
+    } else if (winner === 'computerWin') {
+        setIndicatorDivColors('pink', 'lightgreen')
+    } else if (winner === 'tie') {
+        setIndicatorDivColors('lightblue', 'lightblue')
+    } else if (winner === 'playerVictory') {
+        setIndicatorDivColors('yellow')
+    } else if (winner === 'computerVictory') {
+        setIndicatorDivColors(undefined,'yellow')
+    } else {
+        console.log('error with changeIndicatorBackground()')
+    }
+}
+
+function setIndicatorDivColors(playerColor, computerColor) {
+    playerInputDiv.setAttribute('style', `background-color: ${playerColor}`)
+    computerOutputDiv.setAttribute('style', `background-color: ${computerColor}`)
 }
 
 function resetGame() {
