@@ -1,7 +1,13 @@
 let pageAudio = document.getElementById('pageAudio');
 pageAudio.volume = 0.1;
-pageAudio.play();
-setTimeout( () => pageAudio.play(), 260000);
+firstHover = true;
+window.addEventListener('click', () => {
+    if (firstHover === true) {
+        pageAudio.play();
+        setTimeout( () => pageAudio.play(), 260000);
+    }
+})
+
 let attackAudio = document.getElementById('attackAudio');
 attackAudio.volume = 1;
 
