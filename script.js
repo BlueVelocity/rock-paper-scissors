@@ -1,5 +1,7 @@
 let pageAudio = document.getElementById('pageAudio');
-pageAudio.volume = 0.3;
+pageAudio.volume = 0.2;
+let attackAudio = document.getElementById('attackAudio');
+attackAudio.volume = 1;
 
 let buttons = document.querySelectorAll(".input-button");
 
@@ -12,7 +14,7 @@ function playerButtonClick(button) {
     setTimeout(() => {
         button.setAttribute('width', '100');
         button.setAttribute('height', '100');
-    }, 100)
+    }, 75)
 }
 
 let computerOutputDiv = document.getElementById("computer-output-div");
@@ -109,8 +111,10 @@ function winOrLose() {
 function changeIndicatorBackground(winner) {
     if (winner === 'playerWin') {
         setIndicatorDivColors('lightgreen', 'pink')
+        attackAudio.play();
     } else if (winner === 'computerWin') {
         setIndicatorDivColors('pink', 'lightgreen')
+        attackAudio.play();
     } else if (winner === 'tie') {
         setIndicatorDivColors('lightblue', 'lightblue')
     } else if (winner === 'playerVictory') {
