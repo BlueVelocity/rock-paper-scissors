@@ -10,7 +10,7 @@ html, body {
 }
 
 div {
-    border-style: solid;
+    border-style: hidden;
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
@@ -23,7 +23,22 @@ div {
 }
 
 .input {
+    width: 100px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: lightblue;
+}
+
+.input div {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
 .computer-output {

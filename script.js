@@ -1,9 +1,19 @@
 let pageAudio = document.getElementById('pageAudio');
-pageAudio.volume = 0.1;
+pageAudio.volume = 0.3;
 
 let buttons = document.querySelectorAll(".input-button");
 
-buttons.forEach( (button) => {button.addEventListener('click', ( () => runGame(button.getAttribute('name'))))})
+buttons.forEach( (button) => {button.addEventListener('click', ( () => playerButtonClick(button)))})
+
+function playerButtonClick(button) {
+    runGame(button.getAttribute('name'));
+    button.setAttribute('width', '90');
+    button.setAttribute('height', '90');
+    setTimeout(() => {
+        button.setAttribute('width', '100');
+        button.setAttribute('height', '100');
+    }, 100)
+}
 
 let computerOutputDiv = document.getElementById("computer-output-div");
 let playerInputDiv = document.getElementById("input-div");
