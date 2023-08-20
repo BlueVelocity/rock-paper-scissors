@@ -1,5 +1,5 @@
 let pageAudio = document.getElementById('pageAudio');
-pageAudio.volume = 0.2;
+pageAudio.volume = 0.1;
 let attackAudio = document.getElementById('attackAudio');
 attackAudio.volume = 1;
 
@@ -24,6 +24,8 @@ let computerScoreCounter = document.getElementById("computer-score");
 let playerScoreCounter = document.getElementById("player-score");
 
 let computerOutputFigure = document.getElementById('computer-output-figure')
+
+let victoryAnnouncementOutput = document.getElementById('victory-announcement');
 
 //counter of wins for player
 let playerScore= 0;
@@ -111,16 +113,22 @@ function winOrLose() {
 function changeIndicatorBackground(winner) {
     if (winner === 'playerWin') {
         setIndicatorDivColors('lightgreen', 'pink')
+        attackAudio.currentTime = 0;
         attackAudio.play();
     } else if (winner === 'computerWin') {
         setIndicatorDivColors('pink', 'lightgreen')
+        attackAudio.currentTime = 0;
         attackAudio.play();
     } else if (winner === 'tie') {
         setIndicatorDivColors('lightblue', 'lightblue')
     } else if (winner === 'playerVictory') {
         setIndicatorDivColors('yellow')
+        victoryAnnouncementOutput.textContent = 'You are the winner!';
+        setTimeout( () => victoryAnnouncementOutput.textContent = 'Who will win?', 3000);
     } else if (winner === 'computerVictory') {
         setIndicatorDivColors(undefined,'yellow')
+        victoryAnnouncementOutput.textContent = 'The AI has won...';
+        setTimeout( () => victoryAnnouncementOutput.textContent = 'Who will win?', 3000);
     } else {
         console.log('error with changeIndicatorBackground()')
     }
@@ -134,6 +142,7 @@ function setIndicatorDivColors(playerColor, computerColor) {
 function resetGame() {
     playerScoreCounter.textContent = '0';
     computerScoreCounter.textContent = '0';
+    victoryAnnouncementOutput.textContent 
     playerScore = 0;
     computerScore = 0;
     console.log('game reset');
